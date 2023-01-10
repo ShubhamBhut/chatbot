@@ -1,0 +1,18 @@
+{"intents": [
+	{"tag": "greetings",
+	"patterns": ["hello", "hi", "hey", "bonjour", "Greetings", "what's up?", "how is it going?"],
+	"responses": ["Hello!", "Hiya", "Salut", "Hi"]
+	},
+	{"tag": "goodbye",
+	"patterns": ["goodbye", "bye", "have a nice day", "have a good day", "cya", "see you soon"],
+	"responses": ["Have a good day", "Goodbye", "Take care", "Cya", "Au revoir"]
+	},
+	{"tag":"name",
+	"patterns": ["what is your name", "who are you", "what should I call you", "can you tell me your name"],
+	"responses": ["I am chx1, created by Napoleon Bonaparte", "Myself chx1 and I am a chatbot created by Napoleon Bonaparte", "You can call me chx1 my friend"]
+	},
+	{"tag":"features",
+	"patterns": ["what can you do", "what can you do for me", "tell me about your capabilities or features"],
+	"responses":["I am a chatbot, so I can definitely chat", "I will give you a hint, I am a Chatbot"]
+	}
+]}
