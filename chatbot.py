@@ -5,6 +5,7 @@ import numpy as np
 import nltk
 from nltk.stem import WordNetLemmatizer
 from tensorflow.keras.models import load_model
+import discord
 
 lemmatizer = WordNetLemmatizer()
 intents = json.loads(open('intents.json').read())
@@ -50,11 +51,43 @@ def get_response(intents_list, intents_json):
     return result
 
 
-while True:
-    message = input("")
-    ints = predict_class(message)
-    res = get_response(ints, intents)
-    print(res)
+#while True:
+#   message = input("")
+#   ints = predict_class(message)
+#   res = get_response(ints, intents)
+#    print(res)
+
+
+intents_discord = discord.Intents.all()
+client = discord.Client(command_prefix='!', intents=intents_discord)
+ 
+@client.event
+async def on_ready():
+    print('We have logged in as {0.user}'.format(client))
+ 
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
+ 
+    else:
+        ints = predict_class(str(message.content))
+        res = get_response(ints, intents)
+        await message.channel.send(res)
+
+client.run('OTkwODIwOTYwNjE5ODg0NTc0.GdZI1q.mA03MEQa0_wPpqXQateDpNCWW_Izvzi6QkrGyE')
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
